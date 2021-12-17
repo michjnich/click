@@ -48,10 +48,11 @@ ALLOWED_IMPORTS = {
     "typing",
     "types",
     "gettext",
+    "platform",
 }
 
 if WIN:
-    ALLOWED_IMPORTS.update(["ctypes", "ctypes.wintypes", "msvcrt", "time"])
+    ALLOWED_IMPORTS.update(["ctypes", "ctypes.wintypes", "msvcrt", "time", "platform"])
 
 
 def test_light_imports():
