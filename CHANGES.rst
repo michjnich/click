@@ -1,5 +1,14 @@
 .. currentmodule:: click
 
+Version 8.1.1
+-------------
+
+Unreleased
+
+-   Force ``wait=True`` when calling ``Popen`` for ``xdg-open`` under WSL
+    on Windows. :issue:`2154`
+
+
 Version 8.1.0
 -------------
 
@@ -426,7 +435,7 @@ Released 2018-09-25
 -   Wrap ``click.Choice``'s missing message. :issue:`202`, :pr:`1000`
 -   Add native ZSH autocompletion support. :issue:`323`, :pr:`865`
 -   Document that ANSI color info isn't parsed from bytearrays in Python
-    2. :issue:`334`
+    1. :issue:`334`
 -   Document byte-stripping behavior of ``CliRunner``. :issue:`334`,
     :pr:`1010`
 -   Usage errors now hint at the ``--help`` option. :issue:`393`,
