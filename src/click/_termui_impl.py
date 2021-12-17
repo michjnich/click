@@ -19,6 +19,7 @@ from ._compat import open_stream
 from ._compat import strip_ansi
 from ._compat import term_len
 from ._compat import WIN
+from ._compat import WSL
 from .exceptions import ClickException
 from .utils import echo
 
@@ -595,9 +596,13 @@ def open_url(url: str, wait: bool = False, locate: bool = False) -> int:
             url = os.path.dirname(_unquote_file(url)) or "."
         else:
             url = _unquote_file(url)
-        c = subprocess.Popen(["xdg-open", url])
-        if wait:
-            return c.wait()
+
+        if WSL:
+            subprocess.Popen(["xdg-open", url], wait=True)
+        else:
+            c = subprocess.Popen(["xdg-open", url])
+            if wait:
+                return c.wait()
         return 0
     except OSError:
         if url.startswith(("http://", "https://")) and not locate and not wait:

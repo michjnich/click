@@ -13,6 +13,7 @@ APP_ENGINE = "APPENGINE_RUNTIME" in os.environ and "Development/" in os.environ.
     "SERVER_SOFTWARE", ""
 )
 WIN = sys.platform.startswith("win") and not APP_ENGINE and not MSYS2
+WSL = "microsoft-standard" in sys.platform.uname().release
 auto_wrap_for_ansi: t.Optional[t.Callable[[t.TextIO], t.TextIO]] = None
 _ansi_re = re.compile(r"\033\[[;?0-9]*[a-zA-Z]")
 
